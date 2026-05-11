@@ -59,7 +59,6 @@ class Solution:
 
         m, n = len(nums1), len(nums2)
         total = m + n
-
         need = (total + 1) // 2
 
         left = 0
