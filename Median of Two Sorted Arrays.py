@@ -16,6 +16,7 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 """
 
 class Solution:
+    
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         merger_list = nums1 + nums2
         merged_list = sorted(merger_list)
@@ -50,3 +51,45 @@ class Solution:
         if (m+n) % 2 == 0:
             return (prev + curr)/2
         return curr
+
+    def findMedianSortedArraysBinary(self, nums1: List[int], nums2: List[int]) -> float:
+
+        if len(nums1) > len(nums2):
+            nums1, nums2 = nums2, nums1
+
+        m, n = len(nums1), len(nums2)
+        total = m + n
+
+        need = (total + 1) // 2
+
+        left = 0
+        right = m
+
+        while left <= right:
+
+            nums1_split = (left + right) // 2
+            nums2_split = need - nums1_split
+
+            num1_left = nums1[0:nums1_split]
+            num1_right = nums1[nums1_split:]
+
+            num2_left = nums2[:nums2_split]
+            num2_right = nums2[nums2_split:]
+
+            num1_left_max = float('-inf') if len(num1_left) == 0 else num1_left[-1]
+            num1_right_min = float('inf') if len(num1_right) == 0 else num1_right[0]
+
+            num2_left_max = float('-inf') if len(num2_left) == 0 else num2_left[-1]
+            num2_right_min = float('inf') if len(num2_right) == 0 else num2_right[0]
+
+            if (num1_left_max <= num2_right_min and num2_left_max <= num1_right_min):
+                if total % 2 == 0:
+                    return (max(num1_left_max, num2_left_max) + min(num1_right_min, num2_right_min)) / 2
+                else:
+                    return max(num1_left_max, num2_left_max)
+            else:
+                if num1_left_max > num2_right_min:
+                    right = nums1_split - 1
+
+                else:
+                    left = nums1_split + 1
