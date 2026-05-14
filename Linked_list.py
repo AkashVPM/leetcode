@@ -18,6 +18,18 @@ class linked_list:
                         current = current.next
                   current.next = new_node
 
+      def insert_nodes(self, target, values):
+            current = self.head
+
+            while current:
+                  if current.val == target:
+
+                        new_node = ListNode(values)
+                        current.next,new_node.next =  new_node,current.next
+                        return
+
+                  current = current.next
+
       def print_list(self):
             current = self.head
             while current:
@@ -31,5 +43,6 @@ if __name__ == "__main__":
       linked_list1.insert(3)
       linked_list1.insert(4)
       linked_list1.insert(5)
+      linked_list1.insert_nodes(3, 10)
 
       linked_list1.print_list()
