@@ -21,7 +21,7 @@ class linked_list:
       def insert_nodes(self, target, values):
             current = self.head
 
-            while current:
+            while current: 
                   if current.val == target:
 
                         new_node = ListNode(values)
