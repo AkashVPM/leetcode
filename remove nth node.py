@@ -38,4 +38,21 @@ class Solution:
         current.next = current.next.next
            
         return head
+      
+    def removeNthFromEndSinglePass(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        
+        dummy = ListNode(0, head)
+        left = dummy 
+        right = dummy 
+
+        for i in range(n): 
+            right = right.next 
+
+        while right.next:
+            right = right.next
+            left = left.next
+        
+        left.next = left.next.next
+
+        return dummy.next
         
