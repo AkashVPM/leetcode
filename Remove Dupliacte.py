@@ -5,7 +5,7 @@ Given the head of a sorted linked list, delete all duplicates such that each ele
 Example 1:
 Input: head = [1,1,2]
 Output: [1,2]
-
+ 
 Example 2:
 Input: head = [1,1,2,3,3]
 Output: [1,2,3]
@@ -16,6 +16,7 @@ Output: [1,2,3]
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = head
