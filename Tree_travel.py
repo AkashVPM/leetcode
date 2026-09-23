@@ -63,6 +63,7 @@ class Tree_Travel:
                   if current.left: queue.append(current.left)
                   if current.right: queue.append(current.right)
 
+
 value = [1,2,3,4,5,6,7]
 root = build_tree(value)
 
