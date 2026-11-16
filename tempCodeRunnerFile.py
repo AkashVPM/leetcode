@@ -1,3 +1,1 @@
-            while nums [i] > nums[i+1]: 
-                  nums[i+1], nums[i] = nums[i], nums[i+1]
-            
+      # print(nums_1, nums_2)
